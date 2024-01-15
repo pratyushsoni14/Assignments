@@ -116,13 +116,13 @@ void dumpImage(const string &outputPath)
 
 int main()
 {
-    string inputPath = "/home/pratyushs/Desktop/Sessions/12 Jan/Assignment/imgs";
-    string outputPath = "/home/pratyushs/Desktop/Sessions/12 Jan/Assignment/imgs_op";
+    string inputPath = "/home/pratyushs/Documents/Assignments/Threading Assignment/Assignment/imgs";
+    string outputPath = "/home/pratyushs/Documents/Assignments/Threading Assignment/Assignment/imgs_op";
 
     // Create threads
     thread loaderThread(loadImage, ref(inputPath));
     vector<thread> processingThreads;
-    for (int i = 0; i < NUM_THREADS - 1; ++i)
+    for (int i = 0; i < 2; ++i)
     {
         processingThreads.emplace_back(processImage);
     }
@@ -138,3 +138,9 @@ int main()
 
     return 0;
 }
+
+
+// Run the code
+// g++ -o your_executable main.cpp $(pkg-config --cflags --libs opencv) -pthread 
+
+// Make sure to change the input and output directories
